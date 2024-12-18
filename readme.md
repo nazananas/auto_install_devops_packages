@@ -1,0 +1,1 @@
+This Bash script will help you install basic packages and modules for DevOps. After finishing this program you need to reboot the system (this is important). In the future, I will improve this script and add new packages and modules. I will also write other Bash scripts to customize these modules and packages.
