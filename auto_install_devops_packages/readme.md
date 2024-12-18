@@ -1,1 +1,0 @@
-This Bash script will help you install basic packages and modules for DevOps. In the future, I will improve this script and add new packages and modules. I will also write other Bash scripts to customize these modules and packages.
