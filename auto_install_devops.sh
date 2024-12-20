@@ -35,17 +35,18 @@ else
 fi
 
 read -p "Do you want to install Jenkins? (1 - yes, 0 - no): " jenkins_st
-
 if [[ "$jenkins_st" == 1 && "$system_type" == 1 ]]; then
     sudo yum update -y
-    sudo yum install -y java-17-amazon-corretto
-    sudo curl -o /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-    sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-    sudo yum install -y jenkins
+    sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+    sudo yum upgrade
+    sudo yum install fontconfig java-17-openjdk
+    sudo yum install jenkins
+    sudo systemctl daemon-reload
     sudo systemctl start jenkins
     sudo systemctl enable jenkins
     sudo systemctl status jenkins
-    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 elif [[ "$jenkins_st" == 1 && "$system_type" == 2 ]]; then
     sudo apt update -y && sudo apt upgrade -y
     sudo apt install openjdk-17-jdk
