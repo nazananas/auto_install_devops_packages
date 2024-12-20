@@ -38,7 +38,7 @@ read -p "Do you want to install Jenkins? (1 - yes, 0 - no): " jenkins_st
 
 if [[ "$jenkins_st" == 1 && "$system_type" == 1 ]]; then
     sudo yum update -y
-    sudo yum install -y java-17-amazon-corretto-headless.x86_64
+    sudo yum install -y java-11-amazon-corretto
     sudo curl -o /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
     sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
     sudo yum install -y jenkins
